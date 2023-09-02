@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title></title>
+    <META NAME="DESCRIPTION" CONTENT="">
+    <META NAME="KEYWORDS" CONTENT="">
+
+    <script type="text/javascript">
+        function chkcontrol(j) {
+            var total=0;
+            for(var i=0; i < document.form1.country.length; i++){
+                if(document.form1.country[i].checked){
+                    total =total +1;
+                }
+                if(total > 5){
+                    alert("Please Select at most five Countries")
+                    document.form1.country[j].checked = false ;
+                    return false;
+                }
+            }
+        }
+    </script>
+    </head>
+
+    <body>
+         <form action="{{ url_for('country_table') }}" name=form1 method=post>
+            <label>Which of the following countries you are willing to travel (At most Five)?</label><br/>
+            <input type="checkbox" name="country" value=France onclick='chkcontrol(0)';> France  <br/>
+            <input type="checkbox" name="country" value=Germany  onclick='chkcontrol(1)';> Germany  <br/>
+            <input type="checkbox" name="country" value=Japan onclick='chkcontrol(2)';> Japan  <br/>
+            <input type="checkbox" name="country" value=Korea onclick='chkcontrol(3)';> Korea  <br/>
+            <input type="checkbox" name="country" value=Singapore onclick='chkcontrol(4)';> Singapore <br/>
+            <input type="checkbox" name="country" value=USA onclick='chkcontrol(5)';> USA  <br/>
+            <input type="checkbox" name="country" value=Canada onclick='chkcontrol(6)';> Canada  <br/>
+            <input type="checkbox" name="country" value=Australia onclick='chkcontrol(7)';> Australia <br/>
+            <input type="checkbox" name="country" value=UK onclick='chkcontrol(8)';> UK  <br/>
+            <input type="checkbox" name="country" value=China onclick='chkcontrol(9)';> China  <br/>
+
+                
+            <input type="submit" />
+        </form>
+    </body>
+</html>
